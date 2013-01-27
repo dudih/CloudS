@@ -1,0 +1,26 @@
+Payments Ratio = 45.898 (235 / 5120)
+Most common name(s): Hugh: 2
+Most common name(s): Julio: 2
+Most common name(s): Nelson: 2
+Most common name(s): Sofia: 2
+Most common name(s): Zelma: 2
+Least common name(s): Annabelle: 1
+Least common name(s): Chandra: 1
+Least common name(s): Clayton: 1
+Least common name(s): Cody: 1
+Least common name(s): Gay: 1
+Least common name(s): Guy: 1
+Least common name(s): Jerri: 1
+Least common name(s): Jessie: 1
+Least common name(s): Julianne: 1
+Least common name(s): Serena: 1
+Nelson Sensabaugh   : 42669
+Hugh Maginnis       : 39375
+Annabelle Glade     : 30252
+Jerri Bartee        : 26393
+Chandra Bottorff    : 21221
+Julianne Deller     : 19624
+Zelma Lubinsky      : 17051
+Nelson Caicedo      : 16191
+Sofia Lucena        : 13779
+Guy Gratton         : 12150
