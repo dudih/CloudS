@@ -17,13 +17,13 @@ class User{
     	$instance = new self($userid);
     	$instance->fname = $fname;
         $instance->lname = $lname;
-        $instance->amount = 3;
+        $instance->amount = intval(0);
         return $instance;
     }
 
     public static function withPR($userid, $paymentid, $amount) {
         $instance = new self($userid);
-        $instance->amount = 5;
+        $instance->amount = intval($amount);
         echo '</br>YYYYE1: '. $instance->amount .'</br>';
         $paymentPrefix = $paymentid[0] . $paymentid[1];
         $payment = new Payment($paymentid, $userid, $amount);

@@ -8,7 +8,7 @@ class Payment{
 	public function __construct($paymentid, $userid, $amount) {
 		 $this->id = $paymentid;
 		 $this->userid = $userid;
-		 $this->amount = $amount;
+		 $this->amount = intval($amount);
 	}
 
 }
