@@ -17,18 +17,16 @@ class User{
     	$instance = new self($userid);
     	$instance->fname = $fname;
         $instance->lname = $lname;
-        $instance->amount = intval(0);
+        $instance->amount = 0;
         return $instance;
     }
 
     public static function withPR($userid, $paymentid, $amount) {
         $instance = new self($userid);
         $instance->amount = intval($amount);
-        echo '</br>YYYYE1: '. $instance->amount .'</br>';
         $paymentPrefix = $paymentid[0] . $paymentid[1];
         $payment = new Payment($paymentid, $userid, $amount);
     	$instance->prefixArray[$paymentPrefix][$paymentid] = $payment;
-    	//To Do: update amount vars and check to move out the last 3 lines
     	return $instance;    	
     }
 

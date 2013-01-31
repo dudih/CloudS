@@ -6,9 +6,9 @@ class Payment{
 	public $amount;
 
 	public function __construct($paymentid, $userid, $amount) {
-		 $this->id = $paymentid;
-		 $this->userid = $userid;
-		 $this->amount = intval($amount);
+		$this->id = $paymentid;
+		$this->userid = $userid;
+		$this->amount = intval($amount);
 	}
 
 }
