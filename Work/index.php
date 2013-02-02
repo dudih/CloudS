@@ -1,7 +1,7 @@
 <?php
 class_exists('User') || require('user.php');
-class_exists('Payment') || require('payment.php');
-class_exists('Prefix') || require('prefix.php');
+//class_exists('Payment') || require('payment.php');
+//class_exists('Prefix') || require('prefix.php');
 
 $usersArray = array();
 $namesArray = array();
@@ -38,20 +38,20 @@ function handlePR($lineArray){
 		$GLOBALS['prCounter']++;
 		if( isset($GLOBALS['usersArray'][$lineArray[2]]) ){
 			$prefixPRid = $lineArray[1][0] . $lineArray[1][1];
-			if( isset($GLOBALS['usersArray'][$lineArray[2]]->prefixArray[$prefixPRid]) ){
-				if( isset($GLOBALS['usersArray'][$lineArray[2]]->prefixArray[$prefixPRid][$lineArray[1]]) ){
+			//if( isset($GLOBALS['usersArray'][$lineArray[2]]->prefixArray[$prefixPRid]) ){
+				if( isset($GLOBALS['usersArray'][$lineArray[2]]->pridArray[$lineArray[1]]) ){
 					$GLOBALS['doublePrCounter']++;
 				}else{
-					$payment = new Payment($lineArray[1], $lineArray[2], $lineArray[3]);
-					$GLOBALS['usersArray'][$lineArray[2]]->prefixArray[$prefixPRid][$lineArray[1]] = $payment;
+					//$payment = new Payment($lineArray[1], $lineArray[2], $lineArray[3]);
+					$GLOBALS['usersArray'][$lineArray[2]]->pridArray[$lineArray[1]] = true; //$payment;
 					$GLOBALS['usersArray'][$lineArray[2]]->amount += intval($lineArray[3]);
 				}
-			}
-			else{
-				$payment = new Payment($lineArray[1], $lineArray[2], $lineArray[3]);
-				$GLOBALS['usersArray'][$lineArray[2]]->prefixArray[$prefixPRid][$lineArray[1]] = $payment;
-				$GLOBALS['usersArray'][$lineArray[2]]->amount += intval($lineArray[3]);
-			}
+			//}
+			// else{
+			// 	//$payment = new Payment($lineArray[1], $lineArray[2], $lineArray[3]);
+			// 	$GLOBALS['usersArray'][$lineArray[2]]->prefixArray[$prefixPRid][$lineArray[1]] = true; //$payment;
+			// 	$GLOBALS['usersArray'][$lineArray[2]]->amount += intval($lineArray[3]);
+			// }
 		}
 		else{
 			$newUser = User:: withPR($lineArray[2], $lineArray[1], $lineArray[3]);
@@ -88,7 +88,7 @@ foreach ($filesnames as $filename) {
 
 	if($prefixFilename != ($filename[21].$filename[22])){
 		foreach ($usersArray as $key => $value) {
-			unset($value->prefixArray[$prefixFilename]);
+			$value->pridArray = array();
 		}
 		$prefixFilename = ($filename[21].$filename[22]);
 	}

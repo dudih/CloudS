@@ -1,16 +1,16 @@
 <?php
-class_exists('Payment') || require('payment.php');
+//class_exists('Payment') || require('payment.php');
 
 class User{
 	public $id;
 	public $fname;
 	public $lname;
 	public $amount;
-	public $prefixArray;
+	public $pridArray;
 
     public function __construct($userid) {
         $this->id = $userid;
-		$prefixArray = array();
+		$pridArray = array();
     }
 
     public static function withUR($userid, $fname, $lname) {
@@ -24,9 +24,9 @@ class User{
     public static function withPR($userid, $paymentid, $amount) {
         $instance = new self($userid);
         $instance->amount = intval($amount);
-        $paymentPrefix = $paymentid[0] . $paymentid[1];
-        $payment = new Payment($paymentid, $userid, $amount);
-    	$instance->prefixArray[$paymentPrefix][$paymentid] = $payment;
+    //$paymentPrefix = $paymentid[0] . $paymentid[1];
+        //$payment = new Payment($paymentid, $userid, $amount);
+    	$instance->pridArray[$paymentid] = true; //$payment;
     	return $instance;    	
     }
 
